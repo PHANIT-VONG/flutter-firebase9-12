@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance;
+    final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -25,11 +25,11 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              user.currentUser!.email ?? 'Email',
+              user!.email ?? 'Email',
               style: Theme.of(context).textTheme.headline4,
             ),
             Text(
-              user.currentUser!.uid,
+              user.uid,
               style: Theme.of(context).textTheme.headline6,
             ),
           ],
