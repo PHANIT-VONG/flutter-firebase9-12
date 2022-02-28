@@ -30,13 +30,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Text(
+              'email',
+              style: TextStyle(
+                fontSize: 50.0,
+                decoration: TextDecoration.underline,
+              ),
+              textAlign: TextAlign.center,
+            ),
             Text(
               user!.email ?? 'Email',
               style: Theme.of(context).textTheme.headline4,
-            ),
-            Text(
-              user.uid,
-              style: Theme.of(context).textTheme.headline6,
             ),
           ],
         ),

@@ -56,9 +56,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     suffixIcon: email.text.isEmpty
                         ? const SizedBox(width: 0.0)
                         : IconButton(
-                            onPressed: () {
-                              email.clear();
-                            },
+                            onPressed: () => email.clear(),
                             icon: const Icon(Icons.close),
                           ),
                   ),
