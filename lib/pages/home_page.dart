@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase9_12/services/google_signin_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +20,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () async {
-              await FirebaseAuth.instance.signOut();
+              //await FirebaseAuth.instance.signOut();
+              GoogleSigninService().logout();
               setState(() {});
             },
             icon: const Icon(Icons.logout),
@@ -30,17 +32,20 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'email',
-              style: TextStyle(
-                fontSize: 50.0,
-                decoration: TextDecoration.underline,
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: NetworkImage(
+                user!.photoURL ??
+                    'https://www.kbbioenergy.com/wp-content/uploads/2020/04/no-image.jpg',
               ),
-              textAlign: TextAlign.center,
             ),
             Text(
-              user!.email ?? 'Email',
+              user.displayName ?? 'DisplayName',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            Text(
+              user.email ?? 'Email',
+              style: Theme.of(context).textTheme.headline5,
             ),
           ],
         ),

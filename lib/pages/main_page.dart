@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase9_12/pages/google_signin_page.dart';
 import 'package:flutter_firebase9_12/pages/home_page.dart';
+import 'package:flutter_firebase9_12/pages/show_contact_page.dart';
 import 'package:flutter_firebase9_12/pages/signin_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -14,14 +16,14 @@ class MainPage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: Text('Something went wrong...!'),
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: Text('Something went wrong...!'),
+              child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData) {
-            return const HomePage();
+            return const ShowContactPage();
           } else {
             return const SignInPage();
           }
