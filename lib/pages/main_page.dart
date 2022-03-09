@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase9_12/pages/google_signin_page.dart';
 import 'package:flutter_firebase9_12/pages/home_page.dart';
-import 'package:flutter_firebase9_12/pages/show_contact_page.dart';
+import 'package:flutter_firebase9_12/pages/show_people_page.dart';
 import 'package:flutter_firebase9_12/pages/signin_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class MainPage extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData) {
-            return const ShowContactPage();
+            return const ShowPeoplePage();
           } else {
             return const SignInPage();
           }
