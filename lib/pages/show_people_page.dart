@@ -18,7 +18,7 @@ class ShowPeoplePage extends StatelessWidget {
         stream: PeopleService().getPeople(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return const Text('Something went wrong');
+            return const Center(child: Text('Something went wrong'));
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -35,8 +35,15 @@ class ShowPeoplePage extends StatelessWidget {
                     ),
                   );
                 },
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    data.photo ??
+                        'https://3znvnpy5ek52a26m01me9p1t-wpengine.netdna-ssl.com/wp-content/uploads/2017/07/noimage_person.png',
+                  ),
+                ),
                 title: Text(data.name!),
                 subtitle: Text(data.email!),
+                trailing: Text(data.gender!),
               );
             },
             separatorBuilder: (context, index) => const Divider(),
