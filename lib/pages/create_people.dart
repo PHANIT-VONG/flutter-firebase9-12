@@ -143,8 +143,8 @@ class _CreatePeoplePageState extends State<CreatePeoplePage> {
               const SizedBox(height: 26.0),
               ElevatedButton.icon(
                 onPressed: () async {
-                  await Future.delayed(const Duration(seconds: 2));
                   _buildLoading();
+                  await Future.delayed(const Duration(seconds: 2));
                   String _photoUrl =
                       await PeopleService().uploadPhoto(File(imageFile!.path));
                   PeopleModel _people = PeopleModel(

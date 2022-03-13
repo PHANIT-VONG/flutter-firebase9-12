@@ -4,6 +4,8 @@ import 'package:flutter_firebase9_12/pages/create_people.dart';
 import 'package:flutter_firebase9_12/pages/detail_people_page.dart';
 import 'package:flutter_firebase9_12/services/people_service.dart';
 
+import '../services/google_signin_service.dart';
+
 class ShowPeoplePage extends StatelessWidget {
   const ShowPeoplePage({Key? key}) : super(key: key);
 
@@ -13,6 +15,15 @@ class ShowPeoplePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('People List'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              //await FirebaseAuth.instance.signOut();
+              GoogleSigninService().logout();
+            },
+            icon: const Icon(Icons.logout),
+          ),
+        ],
       ),
       body: StreamBuilder<List<PeopleModel>>(
         stream: PeopleService().getPeople(),

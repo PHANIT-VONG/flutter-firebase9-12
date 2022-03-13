@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_firebase9_12/models/people_model.dart';
@@ -11,7 +10,7 @@ class PeopleService {
 
   Future<void> createPeople(PeopleModel peopleModel) async {
     try {
-      firestore.collection(tbPeople).add(peopleModel.toMap);
+      firestore.collection(tbPeople).add(peopleModel.toMap());
     } catch (e) {
       debugPrint('Error create people => $e');
     }
@@ -33,7 +32,7 @@ class PeopleService {
 
   Future<void> updatePeople(PeopleModel people) async {
     try {
-      firestore.collection(tbPeople).doc(people.id).update(people.toMap);
+      firestore.collection(tbPeople).doc(people.id).update(people.toMap());
     } catch (e) {
       debugPrint('Error update people => $e');
     }

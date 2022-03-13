@@ -25,7 +25,7 @@ class MainPage extends StatelessWidget {
           } else if (snapshot.hasData) {
             return const ShowPeoplePage();
           } else {
-            return const SignInPage();
+            return const GoogleSigninPage();
           }
         },
       ),

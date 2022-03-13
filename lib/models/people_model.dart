@@ -22,10 +22,12 @@ class PeopleModel {
     email = doc['email'];
     photo = doc['photo'];
   }
-  Map<String, dynamic> get toMap => {
-        'name': name,
-        'gender': gender,
-        'email': email,
-        'photo': photo,
-      };
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'gender': gender,
+      'email': email,
+      'photo': photo,
+    };
+  }
 }
